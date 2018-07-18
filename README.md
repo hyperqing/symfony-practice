@@ -5,22 +5,22 @@
 composer create-project symfony/skeleton my-project
 ```
 
-为了方便开发，能够使用自带的路由进行测试
+为了方便开发，建议使用自带的WebServer进行测试，这样路由规则才会正确生效。
 ```
 composer require symfony/web-server-bundle --dev
 ```
+## 查看symfony版本信息
+```
+php bin/console
+
+Symfony 4.1.1 (kernel: src, env: dev, debug: true)
+```
+
 
 ## 查看当前路由表
 
 ```
 php bin/console debug:router
-```
-
-查看
-```
-php bin/console
-
-Symfony 4.1.1 (kernel: src, env: dev, debug: true)
 ```
 
 ## Service依赖注入
@@ -46,4 +46,8 @@ php bin/console debug:container
 ```
 composer require symfony/monolog-bundle
 ```
+默认情况下，配置已自动生成，不需要任何后续配置，即可直接使用。
 
+为了方便管理日志，避免单个日志太大，可以将monolog.yaml中type设为rotating_file，日志会按日期自动划分。
+
+>http://symfony.com/doc/current/logging.html#how-to-rotate-your-log-files
