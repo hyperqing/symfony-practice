@@ -51,3 +51,27 @@ composer require symfony/monolog-bundle
 为了方便管理日志，避免单个日志太大，可以将monolog.yaml中type设为rotating_file，日志会按日期自动划分。
 
 >http://symfony.com/doc/current/logging.html#how-to-rotate-your-log-files
+
+## 单元测试
+
+本机安装phpunit二进制文件。
+```
+$ wget http://phar.phpunit.cn/phpunit-6.2.phar
+$ chmod +x phpunit-6.2.phar
+$ sudo mv phpunit-6.2.phar /
+usr/local/bin/phpunit
+$ phpunit --version
+PHPUnit x.y.z by Sebastian Bergmann and contributors.
+```
+执行以下语句将自动安装phpunit及其相关套件
+```
+php bin/phpunit
+```
+编写测试用例后，运行测试
+```
+phpunit
+```
+生成代码覆盖率报告
+```
+phpunit --coverage-html CoverageReportDir
+```
