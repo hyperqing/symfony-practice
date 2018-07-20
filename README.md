@@ -30,7 +30,6 @@ php bin/console debug:router
 在service.yaml添加自动加载路径。
 
 在控制器方法或构造方法中以参数形式注入该类。
-by type-hinting an argument with the service's class or interface name
 
 列出你能用来自动加载注入的类和接口
 ```
@@ -54,6 +53,8 @@ composer require symfony/monolog-bundle
 
 ## 单元测试
 
+### 安装和启动PHPUnit
+
 本机安装phpunit二进制文件。
 ```
 $ wget http://phar.phpunit.cn/phpunit-6.2.phar
@@ -71,7 +72,43 @@ php bin/phpunit
 ```
 phpunit
 ```
+输出调试信息，例如当一个测试开始执行时输出其名称。
+```
+phpunit --debug
+```
 生成代码覆盖率报告
 ```
 phpunit --coverage-html CoverageReportDir
+```
+
+### 在测试用例中使用容器中的服务
+
+`self::bootKernel();`可以启动Symfony内核。
+
+`self::$container->get()`可以从当前容器取出服务。
+
+具体可取出的服务见一下命令输出的列表。
+```
+php bin/console debug:autowiring
+```
+示例代码
+```php
+<?php
+namespace App\Tests\Service;
+
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+
+class SomeTest extends KernelTestCase
+{
+    public function setUp()
+    {
+        self::bootKernel();
+    }
+
+    public function testMyFunc()
+    {
+        $service = self::$container->get('App\Service\MyService');
+        $this->assertTrue($service->func());
+    }
+}
 ```
