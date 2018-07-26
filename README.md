@@ -146,6 +146,8 @@ echo 'extension=mongodb.so' >> /opt/docker/etc/php/php.ini
 
 ## Symfony安装MongoDB Bundle
 
+>https://www.doctrine-project.org/projects/doctrine-mongodb-odm/en/latest/reference/introduction.html#using-php-7
+
 先安装
 ```
 composer config "platform.ext-mongo" "1.6.16" && composer require "alcaeus/mongo-php-adapter"
@@ -154,6 +156,9 @@ composer config "platform.ext-mongo" "1.6.16" && composer require "alcaeus/mongo
 ```
 composer require doctrine/mongodb-odm
 ```
+
+>http://symfony.com/doc/master/bundles/DoctrineMongoDBBundle/index.html
+
 再安装
 ```
 composer require doctrine/mongodb-odm-bundle
