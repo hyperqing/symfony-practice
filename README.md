@@ -112,3 +112,79 @@ class SomeTest extends KernelTestCase
     }
 }
 ```
+
+## 使用MongoDB
+
+### 安装MongoDB
+
+http://www.runoob.com/mongodb/mongodb-osx-install.html
+
+### 运行 MongoDB
+
+启动服务
+```
+mongod
+```
+启动客户端连接 MongoDB
+```
+mongo
+```
+查看所有数据库
+```
+show dbs
+```
+
+### PHP7 安装Symfony扩展
+
+http://www.runoob.com/mongodb/php7-mongdb-tutorial.html
+
+在 webdevops/php-nginx:7.2 镜像中
+```
+pecl install mongodb
+echo 'extension=mongodb.so' >> /opt/docker/etc/php/php.ini
+```
+
+## Symfony安装MongoDB Bundle
+
+先安装
+```
+composer config "platform.ext-mongo" "1.6.16" && composer require "alcaeus/mongo-php-adapter"
+```
+再安装
+```
+composer require doctrine/mongodb-odm
+```
+再安装
+```
+composer require doctrine/mongodb-odm-bundle
+```
+在config/bundles.php添加
+```
+Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle::class => ['all' => true],
+```
+在config/doctrine.yaml中添加
+```
+parameters:
+    mongodb_server: "mongodb://localhost:27017"
+```
+```
+doctrine_mongodb:
+    connections:
+        default:
+            server: "%mongodb_server%"
+            options: {}
+    default_database: test_database
+    document_managers:
+        default:
+            auto_mapping: true
+            mappings:
+                App:
+                    is_bundle: false
+                    type: annotation
+                    dir: '%kernel.project_dir%/src/Entity'
+                    prefix: 'App\Entity'
+                    alias: App
+```
+
+
+## 使用Redis
