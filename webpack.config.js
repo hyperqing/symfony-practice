@@ -1,6 +1,6 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const { VueLoaderPlugin}  = require('vue-loader');
+const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
     mode: "development",
@@ -22,6 +22,10 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+            },
             {
                 test: /\.vue$/,
                 use: [
@@ -52,7 +56,7 @@ module.exports = {
                         loader: "file-loader",
                         options: {
                             name: '[path][name].[ext]',
-
+                            publicPath: 'dist',
                         }
                     }
                 ]
