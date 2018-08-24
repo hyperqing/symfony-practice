@@ -1,10 +1,11 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { VueLoaderPlugin}  = require('vue-loader');
 
 module.exports = {
     mode: "development",
     entry: {
-        index: './public/js/indexController.js',
+        index: './asset/IndexController.js',
     },
     output: {
         filename: '[name].bundle.js',
@@ -12,6 +13,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['public/dist']),
+        new VueLoaderPlugin()
     ],
     resolve: {
         alias: {
@@ -20,6 +22,12 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                use: [
+                    'vue-loader',
+                ]
+            },
             { // 查找CSS提供给 style-loader 和 css-loader，将其打包到js中
                 test: /\.css$/,
                 use: [
