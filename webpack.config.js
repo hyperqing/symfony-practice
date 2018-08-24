@@ -39,7 +39,7 @@ module.exports = {
                     'css-loader'
                 ]
             }, { // 读入图片
-                test: /\.(png|jpg|jpeg|gif$)/,
+                test: /\.(png|jpg|jpeg|gif|svg)/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -56,7 +56,7 @@ module.exports = {
                         loader: "file-loader",
                         options: {
                             name: '[path][name].[ext]',
-                            publicPath: 'dist',
+                            publicPath: 'dist/',
                         }
                     }
                 ]

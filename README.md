@@ -192,4 +192,11 @@ doctrine_mongodb:
 ```
 
 
-## 使用Redis
+## 使用前端组件化
+
+>学习前提：掌握 Vue 和 基于Vue的UI框架。
+
+### 安装
+
+
+
