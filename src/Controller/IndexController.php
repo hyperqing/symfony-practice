@@ -30,6 +30,6 @@ class IndexController extends Controller
         $logger->info('这是一条信息的日志', ['id' => 123456789]);
         $logger->debug('这是一条调试的日志', ['id' => 123456789]);
         $logger->error('这是一条错误的日志', ['id' => 123456789]);
-        return new Response($myService->calc());
+        return $this->render('index/index.html.twig');
     }
 }

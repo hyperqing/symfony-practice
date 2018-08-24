@@ -1,0 +1,36 @@
+{
+  "name": "kenkyu",
+  "version": "1.0.0",
+  "description": "创建symfony项目 ``` composer create-project symfony/skeleton my-project ```",
+  "private": true,
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperqing/symfony-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyperqing/symfony-practice/issues"
+  },
+  "homepage": "https://github.com/hyperqing/symfony-practice#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "file-loader": "^2.0.0",
+    "style-loader": "^0.22.1",
+    "vue": "^2.5.17",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "element-ui": "^2.4.6"
+  }
+}
