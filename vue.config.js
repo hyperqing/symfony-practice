@@ -1,17 +1,17 @@
 module.exports = {
     // 基本路径
-    baseUrl: '/',
+    baseUrl: 'dist', // 图片等静态资源最终路径，相对于域名的，即xx.com/dist/xx.jpg
+    outputDir: "public/dist", // 编译输出路径
     productionSourceMap: false,
 
     // 去掉文件名中的 hash
     filenameHashing: false,
     // 删除 HTML 相关的 webpack 插件
     chainWebpack: config => {
-        config.plugins.delete('html')
-        config.plugins.delete('preload')
-        config.plugins.delete('prefetch')
+        config.plugins.delete('html');
+        config.plugins.delete('preload');
+        config.plugins.delete('prefetch');
     },
-    outputDir: "public/dist",
 
     runtimeCompiler: true,
 
@@ -20,21 +20,6 @@ module.exports = {
         main: {
             // page 的入口
             entry: 'front_end_src/main.js',
-            // 模板来源
-            // template: 'public/index.html',
-            // 在 dist/index.html 的输出
-            // filename: 'index.html',
-            // 当使用 title 选项时，
-            // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-            // title: 'Index Page',
-            // 在这个页面中包含的块，默认情况下会包含
-            // 提取出来的通用 chunk 和 vendor chunk。
-            chunks: ['chunk-vendors', 'chunk-common', 'index']
         },
-        // 当使用只有入口的字符串格式时，
-        // 模板会被推导为 `public/subpage.html`
-        // 并且如果找不到的话，就回退到 `public/index.html`。
-        // 输出文件名会被推导为 `subpage.html`。
-        // subpage: 'src/subpage/main.js'
     }
 };
