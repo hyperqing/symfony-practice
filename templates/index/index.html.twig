@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>前后端混合 Demo</title>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('dist/css/chunk-vendors.css') }}">
     <style>
         [v-cloak] {
             display: none;
@@ -17,21 +17,7 @@
 </head>
 <body>
 <div id="app" v-cloak>
-    <div class="content">
-        <h1>对话框示例</h1>
-        <add-rule-dialog></add-rule-dialog>
-    </div>
-    <div class="content">
-        <h1>Bootstrap 示例</h1>
-        <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-secondary">Secondary</button>
-        <button type="button" class="btn btn-success">Success</button>
-        <button type="button" class="btn btn-danger">Danger</button>
-        <button type="button" class="btn btn-warning">Warning</button>
-        <button type="button" class="btn btn-info">Info</button>
-        <button type="button" class="btn btn-light">Light</button>
-        <button type="button" class="btn btn-dark">Dark</button>
-    </div>
+    <app-item></app-item>
     <div class="content">
         <h1>Element UI 示例</h1>
         <div>
@@ -43,26 +29,10 @@
             <el-button type="danger">危险按钮</el-button>
         </div>
     </div>
-    <div class="content">
-        <h1>iView 示例</h1>
-        <div>
-            <i-button>Default</i-button>
-            <i-button type="primary">Primary</i-button>
-            <i-button type="dashed">Dashed</i-button>
-            <i-button type="text">Text</i-button>
-            <br><br>
-            <i-button type="info">Info</i-button>
-            <i-button type="success">Success</i-button>
-            <i-button type="warning">Warning</i-button>
-            <i-button type="error">Error</i-button>
-        </div>
-    </div>
 </div>
 </body>
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="{{ asset('dist/index.bundle.js') }}"></script>
+<script src="{{ asset('dist/js/chunk-vendors.js') }}"></script>
+<script src="{{ asset('dist/js/main.js') }}"></script>
 <script>
     let app = new Vue({
         el: "#app",
