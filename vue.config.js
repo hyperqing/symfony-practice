@@ -2,7 +2,7 @@ module.exports = {
     // 基本路径
     baseUrl: 'dist', // 图片等静态资源最终路径，相对于域名的，即xx.com/dist/xx.jpg
     outputDir: "public/dist", // 编译输出路径
-    productionSourceMap: false,
+    productionSourceMap: false, // 去掉多余的map文件
 
     // 去掉文件名中的 hash
     filenameHashing: false,
