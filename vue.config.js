@@ -1,3 +1,4 @@
+
 module.exports = {
     // 基本路径
     baseUrl: 'dist', // 图片等静态资源最终路径，相对于域名的，即xx.com/dist/xx.jpg
@@ -11,6 +12,7 @@ module.exports = {
         config.plugins.delete('html');
         config.plugins.delete('preload');
         config.plugins.delete('prefetch');
+        config.plugins.delete('copy');
     },
 
     runtimeCompiler: true,
